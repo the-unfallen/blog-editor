@@ -35,11 +35,13 @@ exports.login = async (req, res) => {
         },
     });
 
+    const isProd = process.env.NODE_ENV === "production";
+
     res.cookie("refreshToken", refreshTokenValue, {
         httpOnly: true,
-        secure: false, // 🔹 must be false for local HTTP dev
-        sameSite: "lax", // 🔹 allows cross-origin dev requests
-        path: "/auth", // ✅ must match logout & refresh
+        secure: true, // 🔹 must be false for local HTTP dev
+        secure: isProd,
+        sameSite: isProd ? "none" : "lax",
         maxAge: 1000 * 60 * 60 * 24 * 7,
     });
     const refreshTokenCheck = req.cookies.refreshToken;
