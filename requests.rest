@@ -1,0 +1,120 @@
+###
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTUwMThlYy0yMDdjLTQ2ZmEtOWY1Yi1lNTA5MTU3M2M0YjUiLCJyb2xlIjoiQVVUSE9SIiwiaWF0IjoxNzcxNjcyNjAyLCJleHAiOjE3NzE2NzM1MDJ9.rQcBxWS_0kAlfehPMD5bMJRrbHR2NgodDRPJdx7D2wk
+
+
+###
+GET http://localhost:3000
+
+###
+
+GET http://localhost:3000/posts
+
+###
+
+PUT http://localhost:3000/posts/edit/af45b107-5a12-4299-addb-3ff6f66bfeec
+Authorization: Bearer {{accessToken}}
+
+{
+  "title": "Updated Post Title",
+  "content": "This is the updated content of the post."
+}
+
+###
+
+DELETE http://localhost:3000/posts/delete/af45b107-5a12-4299-addb-3ff6f66bfeec
+Authorization: Bearer {{accessToken}}
+
+###
+
+POST http://localhost:3000/posts/create
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "title": "Top 10 Programming Tips",
+  "content": "Practical advice for writing cleaner and more efficient code."
+}
+
+###
+
+POST http://localhost:3000/comments/create/e3ff45e6-5012-4f7a-a5af-291d6207ad7e
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+    "content": "Oh, what a day!.."
+}
+
+###
+
+GET http://localhost:3000/comments/e3ff45e6-5012-4f7a-a5af-291d6207ad7e
+###
+
+DELETE http://localhost:3000/comments/delete/ea33174d-8318-4963-80ab-fe5acd7308f4
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+###
+
+PUT http://localhost:3000/comments/edit/a605c451-7036-4d31-b6c1-beba7f6adc26
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+    "content": "I want to see more posts like these, please, please, please........ Yes, yes, yes...."
+}
+
+###
+GET http://localhost:3000/users/profile/1
+
+###
+
+POST http://localhost:3000/users/create 
+Content-Type: application/json
+
+{
+    "name": "dapo",
+    "email": "dapo@example.com",
+    "password": "password456"
+}
+
+###
+PUT http://localhost:3000/users/edit/1
+Content-Type: application/json
+
+{
+    "username": "UpdatedUser",
+    "email": "updatedUser@email.com"
+}
+
+###
+DELETE http://localhost:3000/users/delete/803f7e40-3a47-47f3-bccd-57e2f2497044
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/users/all
+
+###
+GET http://localhost:3000/users/profile/803f7e40-3a47-47f3-bccd-57e2f2497044
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "newUser@email.com",
+    "password": "newUserPassword"
+}
+
+###
+POST http://localhost:3000/auth/refresh
+Content-Type: application/json
+
+
+###
+
+POST http://localhost:3000/auth/logout
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+###
