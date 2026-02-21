@@ -53,7 +53,10 @@ app.use(cookieParser());
 // CORS configuration with credentials support
 app.use(
     cors({
-        origin: ["http://localhost:4000", "http://localhost:5000"], // frontends
+        origin: [
+            "https://blog-project-editor.onrender.com",
+            "https://blog-project-reader-0sji.onrender.com",
+        ], // frontends
         credentials: true, // <--- essential for cookie sending
     }),
 );
